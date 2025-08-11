@@ -1,0 +1,17 @@
+127.0.0.1 - - [08/Aug/2025 03:30:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 03:30:12] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 03:30:12] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 03:30:12] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 03:30:12] code 404, message File not found
+127.0.0.1 - - [08/Aug/2025 03:30:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [08/Aug/2025 04:03:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:03:50] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:03:50] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:03:50] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:23:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:23:30] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:23:30] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:23:31] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:40:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:40:51] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Aug/2025 04:40:51] "GET /js/script.js HTTP/1.1" 200 -

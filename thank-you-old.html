@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your Greek chapter bulk order request. We'll respond within 24 hours with your custom quote.">
+    <title>Thank You - Order Request Received | Ireishprint.com</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="Thank You - Greek Chapter Order Request Received">
+    <meta property="og:description" content="Your bulk order request has been received. We'll respond within 24 hours with your custom quote.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Premium Thank You Page Styles */
+        :root {
+            --gradient-primary: linear-gradient(135deg, #000000 0%, #001a33 50%, #003366 100%);
+            --gradient-secondary: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,51,102,0.9) 100%);
+            --gradient-accent: linear-gradient(135deg, #0066CC 0%, #004499 100%);
+            --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --animation-duration: 0.8s;
+        }
+        
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background: #000;
+        }
+        
+        /* Premium Hero Section */
+        .thank-you-hero {
+            background: var(--gradient-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-blue);
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .success-checkmark {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing-xl);
+            position: relative;
+        }
+        
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 3;
+            stroke: var(--success-green);
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke: var(--success-green);
+            fill: none;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .timeline-visualization {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: var(--spacing-2xl) 0;
+            position: relative;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .timeline-step:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-step:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-step:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-step:nth-child(4) { animation-delay: 0.8s; }
+        
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: var(--border-color);
+            z-index: -1;
+        }
+        
+        .timeline-step:last-child::before {
+            display: none;
+        }
+        
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+        
+        .timeline-step.active .timeline-icon {
+            background: var(--primary-blue);
+            color: var(--white);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .order-summary {
+            background: var(--background-light);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-xl);
+            border-left: 4px solid var(--primary-blue);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 1s forwards;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        
+        .progress-ring-circle {
+            stroke-dasharray: 314;
+            stroke-dashoffset: 314;
+            animation: progressAnimation 2s ease-out forwards;
+        }
+        
+        @keyframes progressAnimation {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-visualization {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+            
+            .timeline-step::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h2 class="logo-text">Ireishprint<span class="logo-dot">.</span>com</h2>
+                    <span class="tagline">Professional Greek Apparel</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Thank You Hero Section -->
+    <section class="thank-you-hero">
+        <div id="confetti-container"></div>
+        <div class="container">
+            <div class="thank-you-content">
+                <!-- Animated Success Checkmark -->
+                <div class="success-checkmark">
+                    <svg viewBox="0 0 52 52">
+                        <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+                        <path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                </div>
+                
+                <h1 class="thank-you-title">Thank You!</h1>
+                <p class="thank-you-subtitle">Your Order Request Has Been Successfully Received</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="thank-you-section">
+        <div class="container">
+            <!-- Order Summary (if data available) -->
+            <div class="order-summary" id="order-summary" style="display: none;">
+                <h3>Order Summary</h3>
+                <div class="summary-item">
+                    <span>Organization:</span>
+                    <strong id="summary-org"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Order Type:</span>
+                    <strong id="summary-type"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Product:</span>
+                    <strong id="summary-product"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Total Items:</span>
+                    <strong id="summary-items"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Contact:</span>
+                    <strong id="summary-contact"></strong>
+                </div>
+            </div>
+            
+            <!-- Timeline Visualization -->
+            <div class="timeline-box">
+                <h3>What Happens Next?</h3>
+                <div class="timeline-visualization">
+                    <div class="timeline-step active">
+                        <div class="timeline-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h4>Request Received</h4>
+                        <p>Just now</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4>Quote Preparation</h4>
+                        <p>Within 24 hours</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Quote Sent</h4>
+                        <p>Via your preferred method</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Order Fulfillment</h4>
+                        <p>7-10 business days</p>
+                    </div>
+                </div>
+                
+                <div class="confirmation-message">
+                    <p>We've successfully received your Greek chapter bulk order request. Our team is already working on preparing your custom quote with the applicable bulk discount.</p>
+                    
+                    <ol class="timeline-steps">
+                        <li><strong>Within 24 hours:</strong> You'll receive a detailed quote via your preferred contact method</li>
+                        <li><strong>Custom pricing:</strong> Your quote will include your bulk discount applied automatically</li>
+                        <li><strong>Design consultation:</strong> We'll discuss your specific design requirements</li>
+                        <li><strong>Fast turnaround:</strong> Most orders ship within 7-10 business days after approval</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-box glass-effect">
+                <h3>Need Immediate Assistance?</h3>
+                <p>Our Greek life specialists are here to help!</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:support@ireishprint.com">support@ireishprint.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+13074290147">+1 (307) 429-0147</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Fri: 9AM-6PM EST</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Reference -->
+            <div class="order-reference glass-effect">
+                <p><strong>Order Reference:</strong> <span id="order-ref"></span></p>
+                <p class="reference-note">Please save this reference number for your records</p>
+            </div>
+            
+            <!-- Additional Resources -->
+            <div class="resources-section">
+                <h3>While You Wait...</h3>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <i class="fas fa-palette"></i>
+                        <h4>Browse Design Ideas</h4>
+                        <p>Get inspired by our gallery of Greek apparel designs</p>
+                        <a href="#" class="resource-link">View Gallery →</a>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-book-open"></i>
+                        <h4>Style Guide</h4>
+                        <p>Learn about fabric options and customization possibilities</p>
+                        <a href="#" class="resource-link">Read Guide →</a>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Customer Stories</h4>
+                        <p>See how other chapters customized their apparel</p>
+                        <a href="#" class="resource-link">View Stories →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <a href="index.html" class="return-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Return to Homepage</span>
+                </a>
+                <p class="cta-text">Or browse our <a href="#" class="text-link">Greek life catalog</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Ireishprint<span class="logo-dot">.</span>com</h3>
+                    <p>Professional Greek life apparel since 2010</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> support@ireishprint.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (307) 429-0147</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ireishprint.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Generate order reference number
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate reference
+            const orderRef = 'GRK-' + Date.now().toString().slice(-6);
+            document.getElementById('order-ref').textContent = orderRef;
+            
+            // Retrieve order data from localStorage
+            const orderData = localStorage.getItem('orderData');
+            if (orderData) {
+                const data = JSON.parse(orderData);
+                const summaryEl = document.getElementById('order-summary');
+                
+                // Populate summary
+                document.getElementById('summary-org').textContent = data.organization || 'N/A';
+                document.getElementById('summary-type').textContent = 
+                    data.orderType === 'existing' ? 'Existing Products' : 'Custom Design';
+                document.getElementById('summary-product').textContent = 
+                    data.productType ? data.productType.replace(/([A-Z])/g, ' $1').trim() : 'N/A';
+                document.getElementById('summary-items').textContent = data.totalItems || '0';
+                document.getElementById('summary-contact').textContent = data.name || 'N/A';
+                
+                summaryEl.style.display = 'block';
+                
+                // Clear data after displaying
+                localStorage.removeItem('orderData');
+            }
+            
+            // Confetti animation
+            function createConfetti() {
+                const colors = ['#0066CC', '#10B981', '#FFD700', '#EF4444', '#8B5CF6'];
+                const confettiContainer = document.getElementById('confetti-container');
+                
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    confettiContainer.appendChild(confetti);
+                }
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confettiContainer.innerHTML = '';
+                }, 5000);
+            }
+            
+            createConfetti();
+            
+            // Add CSS for resource cards
+            const style = document.createElement('style');
+            style.textContent = `
+                .resources-section {
+                    margin: var(--spacing-3xl) 0;
+                    text-align: center;
+                }
+                
+                .resources-section h3 {
+                    font-size: 2rem;
+                    margin-bottom: var(--spacing-2xl);
+                    color: var(--primary-black);
+                }
+                
+                .resource-cards {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: var(--spacing-xl);
+                    margin-top: var(--spacing-xl);
+                }
+                
+                .resource-card {
+                    background: var(--white);
+                    padding: var(--spacing-xl);
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                    transition: all var(--transition-base);
+                    opacity: 0;
+                    animation: fadeInUp 0.6s ease forwards;
+                }
+                
+                .resource-card:nth-child(1) { animation-delay: 0.2s; }
+                .resource-card:nth-child(2) { animation-delay: 0.4s; }
+                .resource-card:nth-child(3) { animation-delay: 0.6s; }
+                
+                .resource-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: var(--shadow-xl);
+                }
+                
+                .resource-card i {
+                    font-size: 3rem;
+                    color: var(--primary-blue);
+                    margin-bottom: var(--spacing-lg);
+                }
+                
+                .resource-card h4 {
+                    font-size: 1.25rem;
+                    margin-bottom: var(--spacing-sm);
+                    color: var(--primary-black);
+                }
+                
+                .resource-card p {
+                    color: var(--text-secondary);
+                    margin-bottom: var(--spacing-lg);
+                }
+                
+                .resource-link {
+                    color: var(--primary-blue);
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: var(--transition-base);
+                }
+                
+                .resource-link:hover {
+                    color: var(--primary-blue-dark);
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
